@@ -8,13 +8,22 @@ const app = express();
 // use() is provided by express and allows to add middleware.
 // fn passed to use() is executed for every incoming request
 // next is a function that allows to continue to the next middleware
-app.use((req, res, next) => {
-  console.log('In the middleware');
+// Path by default is '/'
+// app.use('/', (req, res, next) => {
+//   console.log('In the middleware');
+//   next();
+// });
+
+app.use('/', (req, res, next) => {
+  console.log('This runs for all paths');
   next();
 });
 
-app.use((req, res, next) => {
-  console.log('In another middleware');
+app.use('/add-product', (req, res, next) => {
+  res.send('<h1>In add product page</h1>');
+});
+
+app.use('/', (req, res, next) => {
   res.send('<h1>Hello from express</h1>');
 });
 

@@ -23,6 +23,9 @@ const app = express();
 //bodyParser.urlencoded() will returns a middleware function which parses the request body and calls next()
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// make public folder available by adding it to the static middleware to make it a static folder
+app.use(express.static(path.join(rootDir, 'public')));
+
 app.use('/', (req, res, next) => {
   // console.log('This runs for all paths');
   next();
@@ -46,7 +49,7 @@ app.use('/', (req, res, next) => {
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+  res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
 });
 
 // app is also a valid request handler

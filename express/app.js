@@ -2,10 +2,11 @@ const http = require('http');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
-const path = require('path');
+const rootDir = require('./util/path');
 
 // express() returns a function that initialises an object that handles heavy lifting behing the scene
 const app = express();

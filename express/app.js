@@ -2,6 +2,8 @@ const http = require('http');
 
 const express = require('express');
 
+const bodyParser = require('body-parser');
+
 // express() returns a function that initialises an object that handles heavy lifting behing the scene
 const app = express();
 
@@ -14,13 +16,24 @@ const app = express();
 //   next();
 // });
 
+//bodyParser.urlencoded() will returns a middleware function which parses the request body and calls next()
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use('/', (req, res, next) => {
-  console.log('This runs for all paths');
+  // console.log('This runs for all paths');
   next();
 });
 
 app.use('/add-product', (req, res, next) => {
-  res.send('<h1>In add product page</h1>');
+  res.send(
+    '<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add product</button></form>'
+  );
+});
+
+// post() is same as use() but only works for post requests
+app.post('/product', (req, res, next) => {
+  console.log(req.body);
+  res.redirect('/');
 });
 
 app.use('/', (req, res, next) => {

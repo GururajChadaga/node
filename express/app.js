@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const path = require('path');
 
 // express() returns a function that initialises an object that handles heavy lifting behing the scene
 const app = express();
@@ -44,7 +45,7 @@ app.use('/', (req, res, next) => {
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use((req, res, next) => {
-  res.status(404).send('<h1>Not found</h1>');
+  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
 // app is also a valid request handler

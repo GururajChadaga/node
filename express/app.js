@@ -2,7 +2,7 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const expressHandlebars = require('express-handlebars');
+// const expressHandlebars = require('express-handlebars');
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -10,15 +10,16 @@ const rootDir = require('./util/path');
 
 // express() returns a function that initialises an object that handles heavy lifting behing the scene
 const app = express();
-app.engine(
-  'handlebars',
-  expressHandlebars({
-    layoutsDir: 'views/layouts',
-    defaultLayout: 'main-layout',
-  })
-);
-app.set('view engine', 'handlebars');
+// app.engine(
+//   'handlebars',
+//   expressHandlebars({
+//     layoutsDir: 'views/layouts',
+//     defaultLayout: 'main-layout',
+//   })
+// );
+// app.set('view engine', 'handlebars');
 // app.set('view engine', 'pug'); // works directly as it is built in
+app.set('view engine', 'ejs');
 
 // use() is provided by express and allows to add middleware.
 // fn passed to use() is executed for every incoming request

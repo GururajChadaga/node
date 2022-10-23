@@ -51,7 +51,7 @@ app.use('/admin', adminData.routes);
 app.use(shopRoutes);
 app.use((req, res, next) => {
   // res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
-  res.status(404).render('404', { docTitle: 'Page not found' });
+  res.status(404).render('404', { docTitle: 'Page not found', active: 'shop' });
 });
 
 // app is also a valid request handler

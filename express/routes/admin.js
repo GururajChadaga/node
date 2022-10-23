@@ -9,7 +9,7 @@ const products = [];
 
 router.get('/add-product', (req, res, next) => {
   // res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-  res.render('add-product', { docTitle: 'Add Product' });
+  res.render('add-product', { docTitle: 'Add Product', active: 'add-product' });
 });
 
 // post() is same as use() but only works for post requests

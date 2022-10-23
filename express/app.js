@@ -4,12 +4,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const adminRoutes = require('./routes/admin');
+const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const rootDir = require('./util/path');
 
 // express() returns a function that initialises an object that handles heavy lifting behing the scene
 const app = express();
+app.set('view engine', 'pug');
 
 // use() is provided by express and allows to add middleware.
 // fn passed to use() is executed for every incoming request
@@ -46,10 +47,11 @@ app.use('/', (req, res, next) => {
 // app.use('/', (req, res, next) => {
 //   res.send('<h1>Hello from express</h1>');
 // });
-app.use('/admin', adminRoutes);
+app.use('/admin', adminData.routes);
 app.use(shopRoutes);
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
+  // res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
+  res.status(404).render('404', { docTitle: 'Page not found' });
 });
 
 // app is also a valid request handler

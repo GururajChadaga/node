@@ -9,12 +9,12 @@ const products = [];
 
 router.get('/add-product', (req, res, next) => {
   // res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-  // res.render('add-product', { docTitle: 'Add Product', active: 'add-product' }); // for pug
-  res.render('add-product', {
-    docTitle: 'Add Product',
-    activeAddProduct: true,
-    formsCss: true,
-  });
+  res.render('add-product', { docTitle: 'Add Product', active: 'add-product' }); // for pug and ejs
+  // res.render('add-product', {
+  //   docTitle: 'Add Product',
+  //   activeAddProduct: true,
+  //   formsCss: true,
+  // }); //for handlebars
 });
 
 // post() is same as use() but only works for post requests

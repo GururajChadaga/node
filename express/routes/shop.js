@@ -13,6 +13,8 @@ router.get('/', (req, res, next) => {
     prods: products,
     active: 'shop',
     hasProducts: products.length > 0,
+    activeShop: true,
+    productCss: true,
   });
 });
 

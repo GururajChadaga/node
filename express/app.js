@@ -10,7 +10,13 @@ const rootDir = require('./util/path');
 
 // express() returns a function that initialises an object that handles heavy lifting behing the scene
 const app = express();
-app.engine('handlebars', expressHandlebars());
+app.engine(
+  'handlebars',
+  expressHandlebars({
+    layoutsDir: 'views/layouts',
+    defaultLayout: 'main-layout',
+  })
+);
 app.set('view engine', 'handlebars');
 // app.set('view engine', 'pug'); // works directly as it is built in
 

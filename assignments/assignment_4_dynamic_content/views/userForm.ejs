@@ -1,0 +1,21 @@
+<%- include('partials/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/forms.css" />
+  </head>
+  <body>
+    <%- include('partials/navigation.ejs') %>
+
+    <div class="main-content">
+      <form class="user-form" action="/add-user" method="POST">
+        <div class="user-form__input-container">
+          <label for="name">name</label>
+          <input class="user-form__input" type="text" name="name" />
+        </div>
+
+        <div class="user-form__button-container">
+          <button type="submit">Add User</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

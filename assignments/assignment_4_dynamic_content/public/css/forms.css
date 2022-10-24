@@ -1,0 +1,21 @@
+.user-form {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+}
+
+.user-form__input-container {
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+}
+
+.user-form__input {
+  margin-left: 0.5rem;
+  flex-grow: 1;
+}
+
+.user-form__button-container {
+  justify-content: center;
+  display: flex;
+}

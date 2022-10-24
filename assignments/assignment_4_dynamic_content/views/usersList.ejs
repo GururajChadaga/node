@@ -1,0 +1,20 @@
+<%- include('partials/head.ejs') %>
+
+  </head>
+  <body>
+    <%- include('partials/navigation.ejs') %>
+
+    <div class="main-content">
+      <% if(users.length > 0) { %>
+      <h2>Users</h1>
+      <ul>
+        <% for(user of users) { %>
+        <li><%= user %></li>
+        <% } %>
+      </ul>
+      <% } else { %>
+      <h1>No users</h1>
+      <% } %>
+    </div>
+  </body>
+</html>
